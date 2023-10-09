@@ -10,7 +10,7 @@
     menggunakan Java version 8 dan Spring boot, dalam service ini saya provide 
     2 solusi yaitu crawling secara synchronous and asynchronous, pas service ini juga telah saya sediakan 
     Swagger open api untuk memudahkan crawling, selain itu jika ingin menggukan commandLine
-    saya suda provide hal itu juga, berikut dokumentasi dari Swagger dan commandLineRunner, ketika proses 
+    saya sudah provide hal itu juga, berikut dokumentasi dari Swagger dan commandLineRunner, ketika proses 
     crawling selesai maka file Json Job List cermati akan disimpan pada directory result
 
 ##### Setup Running
