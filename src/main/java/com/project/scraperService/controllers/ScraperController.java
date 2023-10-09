@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 @RestController
@@ -22,16 +24,20 @@ public class ScraperController {
 
     @ApiOperation(value = "Scraper Synchronous")
     @PostMapping("fetch/synchronous/scraper")
-    public ResponseEntity<ScraperResponse> fetchScraperDataSync(@RequestParam(value = "address_url") String url) throws IOException {
+    public ResponseEntity<Map<String, List<ScraperResponse.ScraperData>>> fetchScraperDataSync(
+        @RequestParam(value = "address_url") String url) throws IOException
+    {
         ScraperResponse response = scraperService.fetchScraperDataSynchronousService(url);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(response.getResponse());
     }
 
     @ApiOperation(value = "Scraper Asynchronous")
     @PostMapping("fetch/asynchronous/scraper")
-    public ResponseEntity<ScraperResponse> fetchScraperDataAsync(@RequestParam(value = "address_url") String url) throws ExecutionException, InterruptedException {
+    public ResponseEntity<Map<String, List<ScraperResponse.ScraperData>>> fetchScraperDataAsync(
+        @RequestParam(value = "address_url") String url) throws ExecutionException, InterruptedException
+    {
         ScraperResponse response = scraperService.fetchScraperDataAsynchronousService(url).get();
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(response.getResponse());
     }
 
 }
