@@ -18,12 +18,12 @@ import java.util.List;
 public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
-        return new ApiInfo("User Management Service - Donation App",
-            "Open API from customer service donation app.",
+        return new ApiInfo("Scraper - Crawling Service",
+            "Swagger API for scraper - crawling service",
             "1.0",
             "terms of service",
-            new Contact("Donation-Id", "donation.com", "customer.care@donation.com"),
-            "License By Donation-Id",
+            new Contact("Author : Miftakhul Aziz", "", "miftakhull.aziz@gmail.com"),
+            "Cermati Data Engineer Test",
             "",
             Collections.emptyList());
     }
@@ -58,4 +58,5 @@ public class SwaggerConfig {
         authorizationScopes[0] = authorizationScope;
         return Collections.singletonList(new SecurityReference("JWT", authorizationScopes));
     }
+
 }
